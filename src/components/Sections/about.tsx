@@ -1,19 +1,79 @@
 import React from 'react'
 import TextType from '../UI/TextType'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function about() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  }
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, x: 50 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  }
+
+  const tagVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.3,
+      },
+    }),
+  }
+
   return (
     <section id="about" className="relative z-10">
         <div className="min-h-screen max-w-7xl w-full flex items-center justify-center px-5 sm:px-20 py-20 pt-30">
-          <div>
-            <p className="text-fuchsia-300 text-2xl font-mono mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.p 
+              variants={itemVariants}
+              className="text-fuchsia-300 text-2xl font-mono mb-4"
+            >
               Hello, I'm
-            </p>
-            <h2 className="lg:text-9xl sm:text-5xl text-2xl font-semibold font-mono mb-6 text-emerald-400">
+            </motion.p>
+            <motion.h2 
+              variants={itemVariants}
+              className="lg:text-9xl sm:text-5xl text-2xl font-semibold font-mono mb-6 text-emerald-400"
+            >
               Khushal Jangid
-            </h2>
-            <div className="text-xl text-slate-400 mb-6 max-w-xl">
+            </motion.h2>
+            <motion.div 
+              variants={itemVariants}
+              className="text-xl text-slate-400 mb-6 max-w-xl"
+            >
               <span className="font-mono text-fuchsia-300 text-xl font-semibold">
                 <TextType
                   text={[
@@ -30,9 +90,14 @@ export default function about() {
               <br />
               Crafting digital experiences with clean, modern code, elegant
               design, and exceptional problem-solving.
-            </div>
-            <div className="flex gap-4 items-center mb-8">
-              <button
+            </motion.div>
+            <motion.div 
+              variants={itemVariants}
+              className="flex gap-4 items-center mb-8"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() =>
                   document
                     .querySelector("#contact")
@@ -41,48 +106,81 @@ export default function about() {
                 className="px-5 py-2 bg-emerald-400 text-slate-950 font-semibold rounded hover:bg-emerald-300 transition cursor-pointer"
               >
                 Get in touch
-              </button>
-            </div>
-            <div className="flex gap-3 flex-wrap">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              variants={itemVariants}
+              className="flex gap-3 flex-wrap"
+            >
               {[
                 "Full Stack",
                 "Cross-Platform Apps",
                 "Web Design",
                 "Cloud Architecture",
                 "System Design",
-              ].map((tag) => (
-                <span
+              ].map((tag, i) => (
+                <motion.span
                   key={tag}
+                  custom={i}
+                  variants={tagVariants}
+                  whileHover={{ scale: 1.1, y: -2 }}
                   className="px-3 py-1 text-xs border border-slate-700 rounded-full text-slate-400 hover:text-emerald-400 hover:border-emerald-400 transition cursor-pointer"
                 >
                   {tag}
-                </span>
+                </motion.span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Profile Image */}
-          <div className="absolute right-50 top-1/6 transform-scale-200 z-11 invisible lg:visible">
-            <div className="w-72 h-72 flex items-center justify-center">
+          <motion.div 
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
+            className="absolute right-50 top-1/6 transform-scale-200 z-11 invisible lg:visible"
+          >
+            <motion.div 
+              className="w-72 h-72 flex items-center justify-center"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <Image
                 src="/portrait.png"
                 alt="Profile"
                 width={256}
                 height={256}
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-        <div className="max-w-7xl mx-auto py-20">
-          <h3 className="text-emerald-400 text-center text-sm font-semibold mb-8 uppercase">
+        <motion.div 
+          className="max-w-7xl mx-auto py-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.h3 
+            className="text-emerald-400 text-center text-sm font-semibold mb-8 uppercase"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
             About me
-          </h3>
-          <p className="text-center text-slate-300 max-w-2xl mx-auto text-lg mb-8">
+          </motion.h3>
+          <motion.p 
+            className="text-center text-slate-300 max-w-2xl mx-auto text-lg mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
             Full Stack Developer with a passion for solving
             real-world problems through code. From ideation to deployment, I
             bring ideas to life. I'm focused on building scalable solutions
             with cutting-edge technology and delivering digital products.
-          </p>
+          </motion.p>
 
           {/* Achievements */}
           {/* <div className="mb-16">
@@ -153,7 +251,7 @@ export default function about() {
               </div>
             ))}
           </div> */}
-        </div>
+        </motion.div>
       </section>
   )
 }

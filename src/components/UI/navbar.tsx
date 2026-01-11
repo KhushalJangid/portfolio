@@ -32,7 +32,7 @@ const menuItems = [
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
-  const [scrolled, setScrolled] = useState(false);
+  // const [scrolled, setScrolled] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -57,8 +57,6 @@ function Navbar() {
           scrollPosition < sectionTop + sectionHeight
         ) {
           setActiveSection(sectionId);
-          console.log("sectionId", sectionId);
-          console.log("sectionTop", sectionTop, "sectionHeight", sectionHeight);
         }
       });
     };
@@ -68,7 +66,6 @@ function Navbar() {
   }, []);
 
   const handleNavClick = (href: string) => {
-    console.log(href);
     setIsOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };

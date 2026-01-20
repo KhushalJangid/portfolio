@@ -60,21 +60,21 @@ export default function about() {
           >
             <motion.p 
               variants={itemVariants}
-              className="text-fuchsia-300 text-2xl font-mono mb-4"
+              className="text-fuchsia-300 sm:text-2xl text-lg font-mono mb-4"
             >
               Hello, I'm
             </motion.p>
             <motion.h2 
               variants={itemVariants}
-              className="lg:text-9xl sm:text-5xl text-2xl font-semibold font-mono mb-6 text-emerald-400"
+              className="lg:text-9xl sm:text-5xl text-3xl font-semibold font-mono mb-6 text-emerald-400"
             >
               Khushal Jangid
             </motion.h2>
             <motion.div 
               variants={itemVariants}
-              className="text-xl text-slate-400 mb-6 max-w-xl"
+              className="sm:text-xl text-md text-slate-400 mb-6 max-w-xl text-justify"
             >
-              <span className="font-mono text-fuchsia-300 text-xl font-semibold">
+              <span className="font-mono text-fuchsia-300 sm:text-xl text-lg font-semibold">
                 <TextType
                   text={[
                     "Full Stack Developer",
@@ -137,7 +137,7 @@ export default function about() {
             variants={imageVariants}
             initial="hidden"
             animate="visible"
-            className="absolute right-50 top-1/6 transform-scale-200 z-11 invisible lg:visible"
+            className="absolute right-50 top-1/4 transform-scale-200 z-11 invisible lg:visible"
           >
             <motion.div 
               className="w-72 h-72 flex items-center justify-center"

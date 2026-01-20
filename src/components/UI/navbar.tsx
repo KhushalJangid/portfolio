@@ -1,10 +1,15 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { Button } from "./ui/button";
-// import { Download, Menu, X } from "lucide-react";
-import { Download, Menu, Close } from "@carbon/icons-react";
+import { Download } from "@carbon/icons-react";
 import StaggeredMenu from "./StaggeredMenu";
+import { Libre_Barcode_39_Text } from "next/font/google"
+
+const libreBarcode = Libre_Barcode_39_Text({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+})
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -88,7 +93,7 @@ function Navbar() {
   };
   if (isMobile) {
     return (
-      <div className="fixed top-0 left-0 right-0 z-100 backdrop-blur border-b border-slate-800 bg-slate-950/60">
+      <div className="fixed top-0 left-0 right-0 z-100">
         <StaggeredMenu
           isFixed={true}
           position="right"
@@ -96,13 +101,14 @@ function Navbar() {
           // displaySocials={true}
           displayItemNumbering={false}
           menuButtonColor="#fff"
-          openMenuButtonColor="#000"
+          openMenuButtonColor="#fff"
           changeMenuColorOnOpen={true}
-          colors={["#f4a8ff", "#B19EEF"]}
-          logoUrl="/path-to-your-logo.svg"
+          colors={["#00d492","#f4a8ff", "#B19EEF",]}
+          // logoUrl="/path-to-your-logo.svg"
+          logoText="Khushal"
           accentColor="#00d492"
-          onMenuOpen={() => console.log("Menu opened")}
-          onMenuClose={() => console.log("Menu closed")}
+          // onMenuOpen={() => console.log("Menu opened")}
+          // onMenuClose={() => console.log("Menu closed")}
         />
       </div>
     );
@@ -115,17 +121,17 @@ function Navbar() {
       className="fixed top-0 left-0 right-0 z-100 backdrop-blur border-b border-slate-800 bg-slate-950/60"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 className="text-xl font-bold text-emerald-400">Khushal Jangid</h1>
+        {/* <h1 className="text-xl font-bold text-emerald-400">Khushal Jangid</h1> */}
+        <span className={`${libreBarcode.className} text-3xl sm:text-4xl font-bold`}>Khushal</span>
 
         <nav className="flex gap-8 text-sm">
           {navItems.map((item) => (
             <div
               key={item.href}
-              className={`relative hover:text-emerald-400 transition cursor-pointer ${
-                activeSection === item.href.substring(1)
+              className={`relative hover:text-emerald-400 transition cursor-pointer ${activeSection === item.href.substring(1)
                   ? "text-emerald-400" // border-b-2 border-emerald-400"
                   : "text-slate-400"
-              }`}
+                }`}
               onClick={() => handleNavClick(item.href)}
             >
               {item.name}

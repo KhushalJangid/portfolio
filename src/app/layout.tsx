@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${firaCode.variable} font-sans antialiased`}>
+      <body className={`${geist.variable} ${firaCode.variable} font-sans antialiased bg-slate-950`}>
         {children}
       </body>
     </html>

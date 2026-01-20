@@ -58,16 +58,11 @@ export default function Skills() {
       title: "Java",
       href: "https://java.com",
     },
-    {
-      node: <SiDjango size={logoSize} />,
-      title: "Django",
-      href: "https://djangoproject.com",
-    },
-    {
-      node: <SiJavascript size={logoSize} />,
-      title: "JavaScript",
-      href: "https://javascript.com",
-    },
+    // {
+    //   node: <SiJavascript size={logoSize} />,
+    //   title: "JavaScript",
+    //   href: "https://javascript.com",
+    // },
     {
       node: <SiCplusplus size={logoSize} />,
       title: "C++",
@@ -88,22 +83,17 @@ export default function Skills() {
       title: "HTML5",
       href: "https://html5.org",
     },
-    {
-      node: <SiLinux size={logoSize} />,
-      title: "Linux",
-      href: "https://linux.org",
-    },
     // Frameworks
     {
       node: <SiDjango size={logoSize} />,
       title: "Django",
       href: "https://djangoproject.com",
     },
-    {
-      node: <SiFlask size={logoSize} />,
-      title: "Flask",
-      href: "https://flask.palletsprojects.com",
-    },
+    // {
+    //   node: <SiFlask size={logoSize} />,
+    //   title: "Flask",
+    //   href: "https://flask.palletsprojects.com",
+    // },
     {
       node: <SiFlutter size={logoSize} />,
       title: "Flutter",
@@ -125,25 +115,9 @@ export default function Skills() {
       href: "https://nextjs.org",
     },
     {
-      node: <SiBootstrap size={logoSize} />,
-      title: "Bootstrap",
-      href: "https://getbootstrap.com",
-    },
-    {
       node: <SiTailwindcss size={logoSize} />,
       title: "Tailwind CSS",
       href: "https://tailwindcss.com",
-    },
-    // Data Science
-    {
-      node: <SiPandas size={logoSize} />,
-      title: "Pandas",
-      href: "https://pandas.pydata.org",
-    },
-    {
-      node: <SiNumpy size={logoSize} />,
-      title: "NumPy",
-      href: "https://numpy.org",
     },
     // Databases
     {
@@ -181,11 +155,6 @@ export default function Skills() {
       node: <SiGit size={logoSize} />,
       title: "Git",
       href: "https://git-scm.com",
-    },
-    {
-      node: <SiFigma size={logoSize} />,
-      title: "Figma",
-      href: "https://figma.com",
     },
   ];
   const services = [

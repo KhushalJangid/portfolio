@@ -12,7 +12,7 @@ export default function Projects() {
       year: "Mar 2024",
       description:
         "An e-ticketing system developed for Renaissance'24 at JECRC. Compared to traditional ticketing systems, this system saved up-to 60% time and 20% cost.",
-      link: "#",
+      link: "https://github.com/KhushalJangid/Ren24",
       highlights: ["Django", "Flutter", "AWS Cloud"],
     },
     {
@@ -32,7 +32,7 @@ export default function Projects() {
       description:
       "A Streaming platform made in Django that converts Mp4 videos into HLS Format using FFMPEG and uses Flutter application to decrypt and play encrypted HLS (.m3u8) files.",
       // tags: ["Django", "Celery", "Redis", "FFMPEG", "Flutter", "HLS"],
-      link: "#",
+      link: "https://github.com/KhushalJangid/streamit-api",
       highlights: ["Django", "Celery", "FFMPEG", "Flutter"],
     },
     {
@@ -42,7 +42,7 @@ export default function Projects() {
       description:
         "A simple and elegant expense tracker app built with Flutter and Firebase, with features like recording expenses, income, and categories, setting budgets, and date import/export",
       // tags: ["Django", "Celery", "Redis", "FFMPEG", "Flutter", "HLS"],
-      link: "#",
+      link: "https://github.com/KhushalJangid/spendifi",
       highlights: ["Flutter", "Firebase", "BLoC"],
     },
     {
@@ -52,7 +52,7 @@ export default function Projects() {
       description:
 "A simple and easy to use HTTP based file sharing server to aid platform independent wireless file sharing between multiple devices ",
       // tags: ["Django", "Celery", "Redis", "FFMPEG", "Flutter", "HLS"],
-      link: "#",
+      link: "https://github.com/KhushalJangid/sync.io",
       highlights: ["Go", "Gin", "Docker"],
     },
   ];
@@ -103,7 +103,7 @@ export default function Projects() {
 
         {/* Project Details */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-20 mx-10"
+          className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-20 gap-8 lg:mx-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
